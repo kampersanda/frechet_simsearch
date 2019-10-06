@@ -26,19 +26,6 @@ class FreshIndex {
     void count_collisions(const Curve<Point>& query_curve, std::vector<size_t>& counters) {
         m_table->count_collisions(query_curve.points, counters);
     }
-    void count_collisions(const Curve<Point>& query_curve, std::function<void(size_t)> fn) {
-        m_table->count_collisions(query_curve.points, fn);
-    }
-
-    // void range_search(const Curve<Point>& query_curve, uint32_t collision_threshold,  //
-    //                   std::vector<size_t>& counters, std::function<void(size_t)> fn) {
-    //     m_table->count_collisions(query_curve.points, counters);
-    //     for (size_t i = 0; i < m_size; ++i) {
-    //         if (counters[i] > collision_threshold) {
-    //             fn(i);
-    //         }
-    //     }
-    // }
 
     size_t size() const {
         return m_size;

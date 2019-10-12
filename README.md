@@ -16,7 +16,11 @@ $ make
 
 ## External libraries
 
-TBA
+You have to install the external libraries:
+
+- [Boost](https://www.boost.org)
+- [sdsl-lite](https://github.com/simongog/sdsl-lite)
+- [msgpack-c](https://github.com/msgpack/msgpack-c)
 
 ## Examples to make trajectory datasets
 

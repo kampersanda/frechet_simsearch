@@ -13,6 +13,8 @@
 
 // #define ENABLE_VERIFICATION
 
+using namespace frechet_simsearch;
+
 const double ABORT_THRESHOLD_MS = 100.0;
 
 std::string make_result_path(std::string result_dir, std::string base_path, std::string query_path,

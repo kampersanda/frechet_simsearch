@@ -5,6 +5,8 @@
 #include "frechet_hasher.hpp"
 #include "vcode_traits.hpp"
 
+namespace frechet_simsearch {
+
 template <class Point, uint32_t Length>
 class VCodeArray {
   public:
@@ -81,3 +83,5 @@ class VCodeArray {
     hasher_type m_hasher;
     std::vector<vint_type> m_vcodes;
 };
+
+}  // namespace frechet_simsearch

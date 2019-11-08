@@ -11,6 +11,8 @@
 #include <groundtruth.hpp>
 #include <vcode_array.hpp>
 
+using namespace frechet_simsearch;
+
 std::string make_result_path(std::string result_dir, std::string base_path, std::string query_path,
                              double frechet_range, std::string hamming_ranges, Configure cfg) {
     auto result_path = tfm::format("%s/array_score-%s-%s-%g-%s-%s.mpk",  //

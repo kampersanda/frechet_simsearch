@@ -2,6 +2,8 @@
 
 #include "basic.hpp"
 
+namespace frechet_simsearch {
+
 struct BitTools {
     static const uint8_t POPCNT_TABLE[256];
 
@@ -69,3 +71,5 @@ const uint8_t BitTools::POPCNT_TABLE[256] = {
     3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 3, 4, 4, 5, 4, 5, 5, 6, 4,
     5, 5, 6, 5, 6, 6, 7, 2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6,
     6, 7, 3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, 7, 4, 5, 5, 6, 5, 6, 6, 7, 5, 6, 6, 7, 6, 7, 7, 8};
+
+}  // namespace frechet_simsearch

@@ -11,6 +11,8 @@
 #include <frechet_hasher.hpp>
 #include <groundtruth.hpp>
 
+using namespace frechet_simsearch;
+
 extern std::vector<ScoreVec> g_results;
 #pragma omp threadprivate(g_results)
 std::vector<ScoreVec> g_results;

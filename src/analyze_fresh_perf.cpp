@@ -18,6 +18,8 @@
 
 #define ENABLE_VERIFICATION
 
+using namespace frechet_simsearch;
+
 // From Cedar (http://www.tkl.iis.u-tokyo.ac.jp/~ynaga/cedar/)
 inline size_t get_process_size() {
 #ifdef __APPLE__

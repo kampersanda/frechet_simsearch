@@ -4,6 +4,8 @@
 
 #include "basic.hpp"
 
+namespace frechet_simsearch {
+
 template <class Point>
 class FreshIndex {
   public:
@@ -38,3 +40,5 @@ class FreshIndex {
     size_t m_size = 0;
     std::unique_ptr<table_type> m_table;
 };
+
+}  // namespace frechet_simsearch

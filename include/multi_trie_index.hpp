@@ -3,6 +3,8 @@
 #include "trit_array_trie.hpp"
 #include "vcode_array.hpp"
 
+namespace frechet_simsearch {
+
 template <class Point, uint32_t Length>
 class MultiTrieIndex {
   public:
@@ -160,3 +162,5 @@ class MultiTrieIndex {
     // for seach
     std::vector<uint32_t> m_candidates;
 };
+
+}  // namespace frechet_simsearch

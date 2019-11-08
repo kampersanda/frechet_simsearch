@@ -11,6 +11,8 @@
 #include <frechet_hasher.hpp>
 #include <groundtruth.hpp>
 
+using namespace frechet_simsearch;
+
 template <class Point>
 int main_template(const cmdline::parser& p) {
     tfm::printfln("num threads: %d", omp_get_max_threads());

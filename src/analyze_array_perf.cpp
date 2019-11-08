@@ -13,6 +13,8 @@
 
 #define ENABLE_VERIFICATION
 
+using namespace frechet_simsearch;
+
 std::string make_result_path(std::string result_dir, std::string base_path, std::string query_path,
                              double frechet_range, std::string hamming_ranges, Configure cfg) {
     auto result_path = tfm::format("%s/array_perf-%s-%s-%g-%s-%s.mpk",  //

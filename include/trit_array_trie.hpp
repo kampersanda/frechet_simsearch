@@ -8,6 +8,8 @@
 
 #include "basic.hpp"
 
+namespace frechet_simsearch {
+
 class TritArrayTrie {
   public:
     TritArrayTrie() = default;
@@ -270,3 +272,5 @@ class TritArrayTrie {
         }
     }
 };
+
+}  // namespace frechet_simsearch

@@ -24,6 +24,8 @@
 
 #include <tinyformat.h>
 
+namespace frechet_simsearch {
+
 static const uint32_t DOMAIN_BITS = 8;
 static const char* NO_COLOR = "\033[0;0m";
 
@@ -154,3 +156,5 @@ class ProgressPrinter {
     size_t m_stations[11];
     size_t m_cursor = 0;
 };
+
+}  // namespace frechet_simsearch

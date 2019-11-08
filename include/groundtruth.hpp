@@ -4,6 +4,8 @@
 
 #include "basic.hpp"
 
+namespace frechet_simsearch {
+
 using Score = std::pair<size_t, double>;  // base_id, score
 using ScoreVec = std::vector<Score>;
 using ScoreMap = std::map<size_t, ScoreVec>;  // query_id -> (base_id, score)s
@@ -236,3 +238,5 @@ get_true_positives(const ScoreMap& predictions, const ScoreMap& groundtruth) {
     }
     return true_positives;
 }
+
+}  // namespace frechet_simsearch

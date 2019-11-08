@@ -12,6 +12,8 @@
 #include <fresh_index.hpp>
 #include <groundtruth.hpp>
 
+using namespace frechet_simsearch;
+
 std::string make_result_path(std::string result_dir, std::string base_path, std::string query_path,
                              double frechet_range, std::string hamming_similarities, Configure cfg) {
     auto result_path = tfm::format("%s/fresh_score-%s-%s-%g-%s-%s.mpk",  //

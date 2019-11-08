@@ -2,6 +2,8 @@
 
 #include <FRESH/core/frechet.h>
 
+namespace frechet_simsearch {
+
 extern std::vector<double> g_prev_row;
 extern std::vector<double> g_cur_row;
 #pragma omp threadprivate(g_prev_row, g_cur_row)
@@ -29,3 +31,5 @@ template <class Point>
 inline double compute_frechet_discrete(const Curve<Point>& curve_A, const Curve<Point>& curve_B, double range) {
     return discrete_frechet_distance(curve_A, curve_B, range, g_prev_row, g_cur_row);
 }
+
+}  // namespace frechet_simsearch

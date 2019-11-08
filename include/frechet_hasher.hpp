@@ -5,6 +5,8 @@
 #include "frechet_tools.hpp"
 #include "vcode_traits.hpp"
 
+namespace frechet_simsearch {
+
 template <typename Point, uint32_t Length>
 class FrechetHasher {
   public:
@@ -45,3 +47,5 @@ class FrechetHasher {
   private:
     std::vector<LinearFactorLSH<Point>> m_functions;
 };
+
+}  // namespace frechet_simsearch

@@ -4,6 +4,8 @@
 
 #include "vcode_array.hpp"
 
+namespace frechet_simsearch {
+
 template <class Point, uint32_t Length>
 class HmsearchIndex {
   public:
@@ -49,3 +51,5 @@ class HmsearchIndex {
     hasher_type m_hasher;
     std::unique_ptr<hmsearch::hm_index> m_index;
 };
+
+}  // namespace frechet_simsearch

@@ -2,6 +2,8 @@
 
 #include "bit_tools.hpp"
 
+namespace frechet_simsearch {
+
 template <class VInt, class Int, uint32_t Length>
 inline VInt to_vint(const Int* in, uint32_t j) {
     VInt v = VInt(0);
@@ -147,3 +149,5 @@ struct VCodeTraits<128> {
         }
     }
 };
+
+}  // namespace frechet_simsearch

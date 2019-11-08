@@ -19,12 +19,13 @@
 #define _CURVEDIST_LOGGING_H
 
 #ifndef NDEBUG
-#define PRINTD(x)                                       \
-  do { std::stringstream s;                             \
-    s << std::setprecision(2) << std::fixed << x;       \
-    std::string msg = s.str();                          \
-    std::cerr << msg << std::endl;                      \
-  } while (false);
+#define PRINTD(x)                                     \
+    do {                                              \
+        std::stringstream s;                          \
+        s << std::setprecision(2) << std::fixed << x; \
+        std::string msg = s.str();                    \
+        std::cerr << msg << std::endl;                \
+    } while (false);
 
 #define PRINTVAR(x) PRINTD("[" << #x << "] " << x)
 
@@ -33,4 +34,4 @@
 #define PRINTVAR(x)
 #endif
 
-#endif // _CURVEDIST_LOGGING_H
+#endif  // _CURVEDIST_LOGGING_H

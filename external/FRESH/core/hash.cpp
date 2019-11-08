@@ -21,5 +21,3 @@ std::vector<size_t> g_tl_tensored_multihash_scratch_left;
 std::vector<size_t> g_tl_tensored_multihash_scratch_right;
 curve_to_idx_t g_tl_scratch_curve_to_idx;
 std::vector<size_t> g_tl_hash_values;
-
-

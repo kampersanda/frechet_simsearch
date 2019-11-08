@@ -15,6 +15,6 @@
  */
 #include "timer.h"
 
-double get_milliseconds(const boost::timer::cpu_timer &timer) {
-  return timer.elapsed().wall / 1000.0;
+double get_milliseconds(const boost::timer::cpu_timer& timer) {
+    return timer.elapsed().wall / 1000.0;
 }

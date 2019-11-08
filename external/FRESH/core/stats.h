@@ -23,13 +23,12 @@
 #include "types.h"
 
 struct DatasetStats {
-  double min_distance;
-  double max_distance;
-  double mean_distance;
-  double median_distance;
+    double min_distance;
+    double max_distance;
+    double mean_distance;
+    double median_distance;
 };
 
-DatasetStats compute_stats(const std::vector<Curve<Point2D>> &dataset,
-                           size_t num_sampled_pairs, Xorshift1024star &rnd);
+DatasetStats compute_stats(const std::vector<Curve<Point2D>>& dataset, size_t num_sampled_pairs, Xorshift1024star& rnd);
 
-#endif // CURVEDIST_STATS_H
+#endif  // CURVEDIST_STATS_H

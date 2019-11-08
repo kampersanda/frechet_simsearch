@@ -17,4 +17,3 @@
 
 std::vector<bool> tl_visited;
 std::vector<size_t> tl_collision_counters;
-

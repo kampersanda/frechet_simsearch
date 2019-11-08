@@ -21,6 +21,6 @@
 #include "prelude.h"
 #include "types.h"
 
-void densify(Curve<Point2D> & curve, double max_gap, std::vector<Point2D> &scratch_curve);
+void densify(Curve<Point2D>& curve, double max_gap, std::vector<Point2D>& scratch_curve);
 
-#endif // FRECHET_DENSIFY_H
+#endif  // FRECHET_DENSIFY_H

@@ -30,4 +30,4 @@
 #include <boost/algorithm/string.hpp>
 #include <boost/spirit/include/qi.hpp>
 
-#endif // CURVEDIST_PRELUDE_H
+#endif  // CURVEDIST_PRELUDE_H

@@ -17,20 +17,17 @@
 #include "threading.h"
 
 QueryResult::QueryResult()
-  : query(nullptr), ignored(0),
-    matching_curves(std::vector<matching_curves_t>(omp_get_max_threads())) {}
+    : query(nullptr), ignored(0), matching_curves(std::vector<matching_curves_t>(omp_get_max_threads())) {}
 
-QueryResult::QueryResult(Curve<Point2D> const * query)
-  : query(query), ignored(0), matching_curves(std::vector<matching_curves_t>(omp_get_max_threads())) {}
+QueryResult::QueryResult(Curve<Point2D> const* query)
+    : query(query), ignored(0), matching_curves(std::vector<matching_curves_t>(omp_get_max_threads())) {}
 
-void QueryResult::append(Curve<Point2D> const *c, size_t num_collisions) {
-  size_t tid = omp_get_thread_num();
-  matching_curves[tid].push_back(std::make_pair(c, num_collisions));
+void QueryResult::append(Curve<Point2D> const* c, size_t num_collisions) {
+    size_t tid = omp_get_thread_num();
+    matching_curves[tid].push_back(std::make_pair(c, num_collisions));
 }
 
-std::ostream& operator<<(std::ostream& os, const Point2D &p) {
-  os << "(" << p.x << ", " << p.y << ")";
-  return os;
+std::ostream& operator<<(std::ostream& os, const Point2D& p) {
+    os << "(" << p.x << ", " << p.y << ")";
+    return os;
 }
-
-

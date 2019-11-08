@@ -18,35 +18,35 @@
 #ifndef CURVEDIST_THREADING_H
 #define CURVEDIST_THREADING_H
 
-#include "types.h"
+#include <omp.h>
 #include "prelude.h"
 #include "rand.h"
-#include <omp.h>
+#include "types.h"
 
 struct ThreadState {
+    ThreadState(Xorshift1024star rnd)
+        : rnd(rnd),
+          scratch_curve(std::vector<Point2D>()),
+          frechet_row_1(std::vector<double>()),
+          frechet_row_2(std::vector<double>()),
+          flags(std::vector<bool>()),
+          stack(std::vector<size_t>()) {}
 
-  ThreadState(Xorshift1024star rnd)
-      : rnd(rnd), scratch_curve(std::vector<Point2D>()),
-        frechet_row_1(std::vector<double>()),
-        frechet_row_2(std::vector<double>()),
-        flags(std::vector<bool>()),
-        stack(std::vector<size_t>()) {}
-
-  Xorshift1024star rnd;
-  std::vector<Point2D> scratch_curve;
-  std::vector<double> frechet_row_1;
-  std::vector<double> frechet_row_2;
-  std::vector<bool> flags;
-  std::vector<size_t> stack;
+    Xorshift1024star rnd;
+    std::vector<Point2D> scratch_curve;
+    std::vector<double> frechet_row_1;
+    std::vector<double> frechet_row_2;
+    std::vector<bool> flags;
+    std::vector<size_t> stack;
 };
 
-inline std::vector<ThreadState> new_thread_states(Xorshift1024star &rnd) {
-  std::vector<ThreadState> thread_states;
-  for (int tid = 0; tid < omp_get_max_threads(); tid++) {
-    rnd.jump();
-    thread_states.emplace_back(ThreadState(rnd));
-  }
-  return thread_states;
+inline std::vector<ThreadState> new_thread_states(Xorshift1024star& rnd) {
+    std::vector<ThreadState> thread_states;
+    for (int tid = 0; tid < omp_get_max_threads(); tid++) {
+        rnd.jump();
+        thread_states.emplace_back(ThreadState(rnd));
+    }
+    return thread_states;
 }
 
-#endif // CURVEDIST_THREADING_H
+#endif  // CURVEDIST_THREADING_H

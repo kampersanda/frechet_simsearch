@@ -17,7 +17,7 @@ if __name__ == '__main__':
     else:
         fp = open(path, "rb")
 
-    unpacker = msgpack.Unpacker(fp, encoding='utf-8')
+    unpacker = msgpack.Unpacker(fp, raw=False)
     obj = unpacker.unpack()
     fp.close()
 

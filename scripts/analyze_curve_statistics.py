@@ -12,7 +12,7 @@ if __name__ == '__main__':
 
     curve_path = args.curve_path
 
-    unpacker = msgpack.Unpacker(open(curve_path, 'rb'), encoding='utf-8')
+    unpacker = msgpack.Unpacker(open(curve_path, 'rb'), raw=False)
     metadata = unpacker.unpack()
 
     curves = [curve for curve in unpacker]

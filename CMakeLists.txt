@@ -46,14 +46,14 @@ if(BUILTIN_POPCNT)
 endif()
 
 # Dependencies
+set(Boost_USE_MULTITHREADED ON) # https://gitlab.kitware.com/cmake/cmake/issues/19714
 set(Boost_USE_STATIC_LIBS ON)
-find_package(Boost REQUIRED
-  COMPONENTS system filesystem iostreams timer chrono program_options date_time)
+find_package(Boost REQUIRED COMPONENTS system filesystem iostreams timer chrono program_options date_time)
 include_directories(${Boost_INCLUDE_DIRS})
 
 # SDSL (Please modify these depending on your env.)
-link_directories($ENV{HOME}/lib)
-include_directories($ENV{HOME}/include)
+include_directories(/usr/local/include)
+link_directories(/usr/local/lib)
 
 find_package(BZip2)
 if(BZIP2_FOUND)
@@ -62,8 +62,9 @@ else()
   message("-- BZip2 not found, experimental results will not be compressed")
 endif()
 
-set(GCC_WARNINGS "-Wall")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++1z -pthread ${GCC_WARNINGS}")
+# -fvisibility=hidden is enabled to ignore "ld: warning: direct access in function for boost::filesystem."
+# https://stackoverflow.com/questions/36567072/why-do-i-get-ld-warning-direct-access-in-main-to-global-weak-symbol-in-this
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++1z -pthread -fvisibility=hidden -Wall")
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -DNDEBUG -march=native -O3")
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -fsanitize=address -fno-omit-frame-pointer -O0 -g -DDEBUG")
 
@@ -79,8 +80,8 @@ message(STATUS "CXX_FLAGS_DEBUG are ${CMAKE_CXX_FLAGS_DEBUG}")
 message(STATUS "CXX_FLAGS_RELEASE are ${CMAKE_CXX_FLAGS_RELEASE}")
 
 if("${CMAKE_CXX_COMPILER_ID}" MATCHES "Clang")
-    include_directories(/usr/local/include /usr/local/opt/openssl/include)
-    link_directories(/usr/local/lib /usr/local/opt/openssl/lib)
+    include_directories(/usr/local/opt/openssl/include)
+    link_directories(/usr/local/opt/openssl/lib)
 endif()
 
 add_subdirectory(external)

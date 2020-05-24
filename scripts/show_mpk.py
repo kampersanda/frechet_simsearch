@@ -19,7 +19,7 @@ if __name__ == '__main__':
     else:
         fp = open(path, "rb")
 
-    unpacker = msgpack.Unpacker(fp, encoding='utf-8')
+    unpacker = msgpack.Unpacker(fp, raw=False)
     for obj in unpacker:
         json.dump(obj, sys.stdout, indent=2)
         sys.stdout.write('\n')

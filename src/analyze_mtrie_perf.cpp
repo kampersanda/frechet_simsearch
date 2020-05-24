@@ -232,7 +232,7 @@ int main(int argc, char** argv) {
     p.add<std::string>("hamming_ranges", 'h', "hamming ranges (min:max:step)", false, "0:16:2");
     p.add<uint32_t>("repeatations", 'L', "repeatations of functions in LSH (i.e. code length)", false, 64);
     p.add<uint32_t>("buckets", 'B', "number of buckets", false, 8);
-    p.add<uint32_t>("reduction_threshold", 'T', "threshold of node reduction", false, 1);
+    p.add<uint32_t>("reduction_threshold", 'T', "threshold of node reduction", false, 8);
     p.add<double>("resolution_factor", 'F', "resolution factor in LSH", false, 4.0);
     p.add<uint64_t>("seed", 'S', "random seed in LSH", false, 114514);
     p.parse_check(argc, argv);

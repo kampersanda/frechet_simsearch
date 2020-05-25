@@ -1,7 +1,7 @@
 # frechet_simsearch
 [![experimental](http://badges.github.io/stability-badges/dist/experimental.svg)](http://github.com/badges/stability-badges)
 
-This is an experimental library for approximate trajectory similarity search under Fréchet distance, used in the paper [Succinct Trit-array Trie for Scalable Trajectory Similarity Search]().
+This is an experimental library for approximate trajectory similarity search under Fréchet distance, used in the paper [Succinct Trit-array Trie for Scalable Trajectory Similarity Search](https://arxiv.org/abs/2005.10917).
 
 ## Build instructions
 

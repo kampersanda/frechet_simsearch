@@ -1,9 +1,9 @@
 # frechet_simsearch
-[![experimental](http://badges.github.io/stability-badges/dist/experimental.svg)](http://github.com/badges/stability-badges)
-
-This is an experimental library for approximate trajectory similarity search under Fréchet distance, used in the paper [Succinct Trit-array Trie for Scalable Trajectory Similarity Search](https://arxiv.org/abs/2005.10917).
+This is an experimental library for approximate trajectory similarity search under Fréchet distance, used in the experiments of the paper, Shunsuke Kanda, Koh Takeuchi, Keisuke Fujii, and Yasuo Tabei "[Succinct Trit-array Trie for Scalable Trajectory Similarity Search](https://arxiv.org/abs/2005.10917)," In *28th ACM SIGSPATIAL*, 2020.
 
 ## Build instructions
+
+You can download and compile this library by the following commands:
 
 ```shell
 $ git clone https://github.com/kampersanda/frechet_simsearch.git
@@ -11,16 +11,12 @@ $ cd frechet_simsearch
 $ mkdir build
 $ cd build
 $ cmake ..
-$ make
+$ make -j
 ```
 
-## External libraries
+After the commands, the executables will be produced in `build/bin` directory.
 
-You have to install the external libraries:
-
-- [Boost](https://www.boost.org)
-- [sdsl-lite](https://github.com/simongog/sdsl-lite)
-- [msgpack-c](https://github.com/msgpack/msgpack-c)
+The code is written in C++17, so please install g++ >= 7.0 or clang >= 4.0. The following dependencies have to be installed to compile the library: CMake >= 3.0 (for the build system), Boost >= 1.42, [sdsl-lite](https://github.com/simongog/sdsl-lite), and [msgpack-c](https://github.com/msgpack/msgpack-c).
 
 ## Example to make trajectory datasets
 
@@ -36,7 +32,7 @@ $ rm -r files/
 $ python3 scripts/split_dataset.py SanFrancisco.mpk 100
 ```
 
-Then, data set `SanFrancisco_base.mpk` and query set `SanFrancisco_query.mpk` will be generated.
+Then, data set `SanFrancisco_base.mpk` and query set `SanFrancisco_query.mpk` will be generated in the msgpack format.
 
 The statistics are
 
@@ -61,7 +57,7 @@ $ rm train.csv.zip
 $ python3 scripts/split_dataset.py PortoTaxi.mpk 1000
 ```
 
-Then, data set `PortoTaxi_base.mpk` and query set `PortoTaxi_query.mpk` will be generated.
+Then, data set `PortoTaxi_base.mpk` and query set `PortoTaxi_query.mpk` will be generated in the msgpack format.
 
 The statistics are
 
@@ -77,19 +73,19 @@ median_length: 41.0
 
 ## Example to analyze search methods
 
-An example to analyze tSTAT on `PortoTaxi` using Fréchet range 7263 is as follows.
+An example to analyze tSTAT on `PortoTaxi` using Fréchet range 7000 is as follows.
 
 The LSH performance (using other default parameters) can be analyzed in the following commands:
 
 ```shell
-$ ./bin/make_range_groundtruth -b PortoTaxi_base.mpk -q PortoTaxi_query.mpk -r 7263
-$ ./bin/analyze_array_score -b PortoTaxi_base.mpk -q PortoTaxi_query.mpk -r 7263
+$ ./bin/make_range_groundtruth -b PortoTaxi_base.mpk -q PortoTaxi_query.mpk -r 7000
+$ ./bin/analyze_array_score -b PortoTaxi_base.mpk -q PortoTaxi_query.mpk -r 7000
 ```
 
 The search performance (using other default parameters) can be analyzed in the following commands:
 
 ```shell
-$ ./bin/analyze_mtrie_perf -b PortoTaxi_base.mpk -q PortoTaxi_query.mpk -r 7263
+$ ./bin/analyze_mtrie_perf -b PortoTaxi_base.mpk -q PortoTaxi_query.mpk -r 7000
 ```
 
 ## Licensing

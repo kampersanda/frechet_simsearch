@@ -1,5 +1,5 @@
 # frechet_simsearch
-This is an experimental library for approximate trajectory similarity search under Fréchet distance, used in the experiments of the paper, Shunsuke Kanda, Koh Takeuchi, Keisuke Fujii, and Yasuo Tabei "[Succinct Trit-array Trie for Scalable Trajectory Similarity Search](https://arxiv.org/abs/2005.10917)," In *28th ACM SIGSPATIAL*, 2020.
+A C++17 implementation of data structures for approximate trajectory similarity search under Fréchet distance, used in the experiments of the paper, Shunsuke Kanda, Koh Takeuchi, Keisuke Fujii, and Yasuo Tabei "[Succinct Trit-array Trie for Scalable Trajectory Similarity Search](https://arxiv.org/abs/2005.10917)," In *28th ACM SIGSPATIAL*, 2020.
 
 ## Build instructions
 
@@ -18,7 +18,7 @@ After the commands, the executables will be produced in `build/bin` directory.
 
 The code is written in C++17, so please install g++ >= 7.0 or clang >= 4.0. The following dependencies have to be installed to compile the library: CMake >= 3.0 (for the build system), Boost >= 1.42, [sdsl-lite](https://github.com/simongog/sdsl-lite), and [msgpack-c](https://github.com/msgpack/msgpack-c).
 
-## Example to make trajectory datasets
+## Examples to produce trajectory datasets
 
 ### [GISCUP 2017 dataset](http://sigspatial2017.sigspatial.org/giscup2017/download)
 
@@ -75,14 +75,14 @@ median_length: 41.0
 
 An example to analyze tSTAT on `PortoTaxi` using Fréchet range 7000 is as follows.
 
-The LSH performance (using other default parameters) can be analyzed in the following commands:
+The LSH performance (using default parameters) can be analyzed in the following commands:
 
 ```shell
 $ ./bin/make_range_groundtruth -b PortoTaxi_base.mpk -q PortoTaxi_query.mpk -r 7000
 $ ./bin/analyze_array_score -b PortoTaxi_base.mpk -q PortoTaxi_query.mpk -r 7000
 ```
 
-The search performance (using other default parameters) can be analyzed in the following commands:
+The search performance (using default parameters) can be analyzed in the following commands:
 
 ```shell
 $ ./bin/analyze_mtrie_perf -b PortoTaxi_base.mpk -q PortoTaxi_query.mpk -r 7000
@@ -91,3 +91,15 @@ $ ./bin/analyze_mtrie_perf -b PortoTaxi_base.mpk -q PortoTaxi_query.mpk -r 7000
 ## Licensing
 
 This library is free software provided under [Apache License 2.0](https://github.com/kampersanda/frechet_simsearch/blob/master/LICENSE), following the License of [Cecca/FRESH](https://github.com/Cecca/FRESH). Our modifications are put in each source file.
+
+If you use the library, please cite the following paper:
+
+```tex
+@inproceedings{kanda2020tstat,
+  author = {Kanda, Shunsuke and Takeuchi, Koh and Fujii, Keisuke and Tabei, Yasuo},
+  title = {Succinct trit-array trie for scalable trajectory similarity search},
+  booktitle = {Proceedings of the 28th ACM SIGSPATIAL International Conference on Advances in Geographic Information Systems (SIGSPATIAL)},
+  year = {2020}
+}
+```
+

@@ -90,7 +90,7 @@ $ ./bin/analyze_mtrie_perf -b PortoTaxi_base.mpk -q PortoTaxi_query.mpk -r 7000
 
 ## Licensing
 
-This library is free software provided under [Apache License 2.0](https://github.com/kampersanda/frechet_simsearch/blob/master/LICENSE), following the License of [Cecca/FRESH](https://github.com/Cecca/FRESH). Our modifications are put in each source file.
+This program is available for only academic use, basically. For the academic use, please keep MIT License. For the commercial use, please keep GPL 2.0 and make a contact to [Shunsuke Kanda](shnsk.knd@gmail.com).
 
 If you use the library, please cite the following paper:
 
